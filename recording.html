@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recording - AI Clinical Scribe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+    <div class="max-w-md mx-auto">
+        <!-- Recording Screen -->
+        <div class="phone-frame flex flex-col">
+            <div class="flex-1 flex flex-col">
+                <!-- Clean Header -->
+                <div id="headerSection" class="bg-blue-600 p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <button class="text-white/80 mr-4" onclick="handleBack()">
+                                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                            </button>
+                            <div>
+                                <h2 class="text-white font-semibold">Recording Session</h2>
+                                <p class="text-white/80 text-sm">Patient: John Davis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-white/80 flex items-center">
+                            <i data-feather="clock" class="w-4 h-4 mr-1"></i>
+                            <span class="text-sm recording-timer">00:00</span>
+                        </div>
+                        <div id="recordingStatus" class="recording-status bg-red-500/20 text-white text-sm px-3 py-1 rounded-full flex items-center">
+                            <span class="h-2 w-2 bg-red-500 rounded-full mr-2 animate-pulse"></span>
+                            Recording
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="flex-1 p-6 overflow-y-auto">
+                    <div class="space-y-4">
+                        <!-- Live Transcription with Animation -->
+                        <div class="bg-gray-50 rounded-xl p-4" id="transcriptionBox">
+                            <h3 class="font-medium mb-2">Live Transcription</h3>
+                            <div id="transcriptionContent" class="h-48 overflow-y-auto relative">
+                                <div class="text-sm text-gray-600 mb-2 space-y-2">
+                                    <div id="typingDots" class="hidden flex space-x-1">
+                                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce"></div>
+                                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Notes Preview with Processing Animation -->
+                        <div class="bg-blue-50 rounded-xl p-4" id="aiNotesBox">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="font-medium text-blue-700">AI Notes Preview</h3>
+                                <div id="processingIndicator" class="processing-indicator flex items-center text-xs text-blue-600">
+                                    <svg class="animate-spin h-4 w-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Processing
+                                </div>
+                            </div>
+                            <div class="h-40 overflow-y-auto relative">
+                                <div class="space-y-2 text-sm text-blue-600">
+                                    <div class="space-y-2">
+                                        <p><span class="font-medium">S:</span> Patient reporting back pain symptoms</p>
+                                        <p><span class="font-medium">O:</span> Initial examination in progress</p>
+                                        <p><span class="font-medium">A:</span> Gathering data for assessment</p>
+                                        <p><span class="font-medium">P:</span> Will formulate based on findings</p>
+                                        <div class="typing-animation mt-2">
+                                            <span class="typing-cursor">|</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Voice Activity Visualization -->
+                        <div id="voiceWaves" class="voice-waves flex items-center justify-center h-12 space-x-1 bg-white/50 rounded-xl">
+                            <div class="wave-bar h-4 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-6 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-8 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-10 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-12 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-10 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-8 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-6 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                            <div class="wave-bar h-4 w-1 bg-blue-600 rounded-full transform origin-bottom transition-transform duration-200"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Control Bar -->
+                <div class="bg-white border-t p-4">
+                    <div class="flex justify-center items-center space-x-4">
+                        <!-- Recording/Pause/Play Button -->
+                        <button id="recordingButton" class="p-4 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-colors">
+                            <i data-feather="pause" class="w-6 h-6"></i>
+                        </button>
+
+                        <!-- Stop Button (visible during recording) -->
+                        <button id="stopButton" class="p-4 rounded-full bg-gray-700 text-white shadow-lg hover:bg-gray-800 transition-colors" onclick="handleStop()">
+                            <i data-feather="square" class="w-6 h-6"></i>
+                        </button>
+
+                        <!-- Submit Button (visible in paused state) -->
+                        <button id="submitButton" class="hidden p-4 rounded-full bg-green-600 text-white shadow-lg hover:bg-green-700 transition-colors" onclick="handleSubmit()">
+                            <i data-feather="check" class="w-6 h-6"></i>
+                        </button>
+                        
+                        <!-- Discard Button (visible in paused state) -->
+                        <button id="discardButton" class="hidden p-4 rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 transition-colors" onclick="resetAll()">
+                            <i data-feather="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 0 0 10px #1a1a1a, 0 20px 40px -10px rgba(0,0,0,0.3);
+        }
+
+        /* Custom scrollbar styling */
+        #transcriptionContent::-webkit-scrollbar,
+        #aiNotesBox .overflow-y-auto::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        #transcriptionContent::-webkit-scrollbar-track,
+        #aiNotesBox .overflow-y-auto::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        #transcriptionContent::-webkit-scrollbar-thumb,
+        #aiNotesBox .overflow-y-auto::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+
+        #transcriptionContent::-webkit-scrollbar-thumb:hover,
+        #aiNotesBox .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Auto-scroll to bottom for transcript */
+        #transcriptionContent {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes typing {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .typing-cursor {
+            animation: typing 0.8s infinite;
+        }
+
+        .wave-bar {
+            animation: wave 1s infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1); }
+            100% { transform: scaleY(0.5); }
+        }
+
+        .wave-bar:nth-child(1) { animation-delay: 0s; }
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(6) { animation-delay: 0.5s; }
+        .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+        .wave-bar:nth-child(8) { animation-delay: 0.7s; }
+        .wave-bar:nth-child(9) { animation-delay: 0.8s; }
+
+        .paused .wave-bar {
+            animation-play-state: paused;
+        }
+    </style>
+
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+
+        // State management variables
+        let currentState = 'recording';
+        let isRecording = true;
+        let timerInterval;
+        let hasChanges = false;
+        let seconds = 0;
+        let transcriptAnimationInterval;
+        let currentTranscriptText = ''; // Store current transcript text
+
+        // Sample transcript segments to animate
+        const transcriptSegments = [
+            "Patient describes experiencing intermittent lower back pain...",
+            "Pain started approximately one week ago...",
+            "Pain is worse in the morning and after sitting for long periods...",
+            "No radiating pain down the legs...",
+            "Patient has been using over-the-counter pain medication...",
+            "No previous history of back injuries...",
+            "Pain level varies between 4-7 out of 10...",
+            "Patient maintains regular exercise routine, primarily walking..."
+        ];
+
+        let currentSegmentIndex = 0;
+
+        // Animate transcript during recording
+        function startTranscriptAnimation(continueFromPrevious = false) {
+            const transcriptionContent = document.getElementById('transcriptionContent');
+            const aiNotesContent = document.querySelector('#aiNotesBox .overflow-y-auto');
+            
+            // If not continuing from previous, reset transcript text
+            if (!continueFromPrevious) {
+                currentTranscriptText = '';
+                currentSegmentIndex = 0;
+            }
+            
+            if (transcriptAnimationInterval) {
+                clearInterval(transcriptAnimationInterval);
+            }
+
+            // Initialize AI Notes with starting content
+            aiNotesContent.innerHTML = `
+                <div class="space-y-2 text-sm text-blue-600">
+                    <div class="space-y-2">
+                        <p><span class="font-medium">S:</span> Patient reporting back pain symptoms</p>
+                        <p><span class="font-medium">O:</span> Initial examination in progress</p>
+                        <p><span class="font-medium">A:</span> Gathering data for assessment</p>
+                        <p><span class="font-medium">P:</span> Will formulate based on findings</p>
+                        <div class="typing-animation mt-2">
+                            <span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // If continuing, immediately show previous transcript
+            if (continueFromPrevious && currentTranscriptText) {
+                transcriptionContent.innerHTML = `
+                    <div class="text-sm text-gray-600 mb-2 space-y-2">
+                        ${currentTranscriptText}
+                        <div class="typing-animation">
+                            <span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+                    <div id="typingDots" class="flex space-x-1">
+                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce"></div>
+                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                    </div>
+                `;
+                transcriptionContent.scrollTop = transcriptionContent.scrollHeight;
+            }
+
+            transcriptAnimationInterval = setInterval(() => {
+                if (isRecording && currentSegmentIndex < transcriptSegments.length) {
+                    currentTranscriptText += transcriptSegments[currentSegmentIndex] + '<br>';
+                    transcriptionContent.innerHTML = `
+                        <div class="text-sm text-gray-600 mb-2 space-y-2">
+                            ${currentTranscriptText}
+                            <div class="typing-animation">
+                                <span class="typing-cursor">|</span>
+                            </div>
+                        </div>
+                        <div id="typingDots" class="flex space-x-1">
+                            <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce"></div>
+                            <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                            <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                        </div>
+                    `;
+
+                    // Auto-scroll to bottom
+                    transcriptionContent.scrollTop = transcriptionContent.scrollHeight;
+
+                    // Update AI Notes progressively
+                    if (currentSegmentIndex >= 2) {
+                        aiNotesContent.innerHTML = `
+                            <div class="space-y-2 text-sm text-blue-600">
+                                <div class="space-y-2">
+                                    <p><span class="font-medium">S:</span> Lower back pain, intermittent, 1-week duration</p>
+                                    <p><span class="font-medium">O:</span> Pain worse in mornings, after prolonged sitting</p>
+                                    <p><span class="font-medium">A:</span> Mechanical back pain, possible muscle strain</p>
+                                    <p><span class="font-medium">P:</span> Consider NSAIDs, physical therapy evaluation</p>
+                                    <div class="typing-animation mt-2">
+                                        <span class="typing-cursor">|</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                    currentSegmentIndex++;
+                }
+            }, 3000);
+        }
+
+        // Recording timer functionality
+        function updateTimer() {
+            const timerElement = document.querySelector('.recording-timer');
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            timerInterval = setInterval(() => {
+                if (isRecording) {
+                    seconds++;
+                    updateTimerDisplay();
+                }
+            }, 1000);
+        }
+
+        // Update timer display
+        function updateTimerDisplay() {
+            const timerElement = document.querySelector('.recording-timer');
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+        }
+
+        // Reset all states to initial values
+        function resetAll() {
+            // Reset timer
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            if (transcriptAnimationInterval) {
+                clearInterval(transcriptAnimationInterval);
+            }
+            seconds = 0;
+            currentSegmentIndex = 0;
+            currentTranscriptText = ''; // Reset transcript text
+            updateTimerDisplay();
+
+            // Reset transcription content to empty state
+            const transcriptionContent = document.getElementById('transcriptionContent');
+            transcriptionContent.innerHTML = `
+                <div class="text-sm text-gray-600 mb-2 space-y-2">
+                    <div id="typingDots" class="hidden flex space-x-1">
+                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce"></div>
+                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        <div class="h-2 w-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                    </div>
+                </div>
+            `;
+
+            // Reset AI Notes with meaningful initial content
+            const aiNotesContent = document.querySelector('#aiNotesBox .overflow-y-auto');
+            aiNotesContent.innerHTML = `
+                <div class="space-y-2 text-sm text-blue-600">
+                    <div class="space-y-2">
+                        <p><span class="font-medium">S:</span> Gathering patient symptoms...</p>
+                        <p><span class="font-medium">O:</span> Awaiting clinical observations...</p>
+                        <p><span class="font-medium">A:</span> Preliminary assessment pending...</p>
+                        <p><span class="font-medium">P:</span> Treatment plan to be determined...</p>
+                        <div class="typing-animation mt-2">
+                            <span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Start fresh recording state
+            changeState('recording');
+            updateTimer();
+        }
+
+        // Change the visual and functional state of the app
+        function changeState(newState) {
+            const previousState = currentState;
+            currentState = newState;
+            const recordingButton = document.getElementById('recordingButton');
+            const submitButton = document.getElementById('submitButton');
+            const stopButton = document.getElementById('stopButton');
+            const discardButton = document.getElementById('discardButton');
+            const recordingStatus = document.getElementById('recordingStatus');
+            const voiceWaves = document.getElementById('voiceWaves');
+            const typingDots = document.getElementById('typingDots');
+            const processingIndicator = document.getElementById('processingIndicator');
+            const transcriptionBox = document.getElementById('transcriptionBox');
+            const aiNotesBox = document.getElementById('aiNotesBox');
+            
+            // Reset all states first
+            voiceWaves.classList.add('hidden');
+            recordingButton.innerHTML = '';
+            
+            switch(newState) {
+                case 'recording':
+                    isRecording = true;
+                    transcriptionBox.classList.remove('opacity-50');
+                    aiNotesBox.classList.remove('opacity-50');
+                    // Show recording button with pause icon
+                    recordingButton.innerHTML = '<i data-feather="pause" class="w-6 h-6"></i>';
+                    recordingButton.classList.remove('hidden');
+                    // Show stop button, hide other action buttons
+                    stopButton.classList.remove('hidden');
+                    submitButton.classList.add('hidden');
+                    discardButton.classList.add('hidden');
+                    
+                    recordingStatus.classList.remove('bg-yellow-500/20', 'bg-green-500/20');
+                    recordingStatus.classList.add('bg-red-500/20');
+                    recordingStatus.querySelector('span').classList.remove('bg-yellow-500', 'bg-green-500');
+                    recordingStatus.querySelector('span').classList.add('bg-red-500');
+                    recordingStatus.lastChild.textContent = 'Recording';
+                    voiceWaves.classList.remove('hidden');
+                    typingDots.classList.remove('hidden');
+                    processingIndicator.classList.remove('hidden');
+                    
+                    // Start transcript animation, continue if coming from paused state
+                    startTranscriptAnimation(previousState === 'paused');
+                    break;
+                    
+                case 'paused':
+                    isRecording = false;
+                    transcriptionBox.classList.add('opacity-50');
+                    aiNotesBox.classList.add('opacity-50');
+                    // Show recording button with play icon
+                    recordingButton.innerHTML = '<i data-feather="play" class="w-6 h-6"></i>';
+                    recordingButton.classList.remove('hidden');
+                    // Hide stop button, show other action buttons
+                    stopButton.classList.add('hidden');
+                    submitButton.classList.remove('hidden');
+                    discardButton.classList.remove('hidden');
+                    
+                    recordingStatus.classList.remove('bg-red-500/20', 'bg-green-500/20');
+                    recordingStatus.classList.add('bg-yellow-500/20');
+                    recordingStatus.querySelector('span').classList.remove('bg-red-500', 'bg-green-500');
+                    recordingStatus.querySelector('span').classList.add('bg-yellow-500');
+                    recordingStatus.lastChild.textContent = 'Paused';
+                    typingDots.classList.add('hidden');
+                    processingIndicator.classList.add('hidden');
+                    
+                    // Stop transcript animation but keep current text
+                    if (transcriptAnimationInterval) {
+                        clearInterval(transcriptAnimationInterval);
+                    }
+                    break;
+            }
+            
+            // Re-initialize Feather icons after changing button content
+            feather.replace();
+        }
+
+        function toggleRecordingState() {
+            if (currentState === 'recording') {
+                changeState('paused');
+            } else if (currentState === 'paused') {
+                changeState('recording');
+            }
+        }
+
+        function handleSubmit() {
+            // Navigate to clinical notes view
+            window.location.href = 'clinical-notes.html';
+        }
+
+        // Handle back navigation
+        function handleBack() {
+            if (hasChanges) {
+                if (confirm('Are you sure you want to go back? Any unsaved changes will be lost.')) {
+                    window.location.href = 'home.html';
+                }
+            } else {
+                window.location.href = 'home.html';
+            }
+        }
+
+        // Handle stop button click
+        function handleStop() {
+            window.location.href = 'home.html';
+        }
+
+        // Update recording state
+        function updateRecordingState(state) {
+            hasChanges = true;
+            currentState = state;
+            const recordingButton = document.getElementById('recordingButton');
+            const submitButton = document.getElementById('submitButton');
+            const stopButton = document.getElementById('stopButton');
+            const discardButton = document.getElementById('discardButton');
+            const voiceWaves = document.getElementById('voiceWaves');
+
+            if (state === 'paused') {
+                recordingButton.innerHTML = '<i data-feather="play" class="w-6 h-6"></i>';
+                submitButton.classList.remove('hidden');
+                stopButton.classList.remove('hidden');
+                discardButton.classList.remove('hidden');
+                voiceWaves.classList.add('paused');
+                isRecording = false;
+            } else {
+                recordingButton.innerHTML = '<i data-feather="pause" class="w-6 h-6"></i>';
+                submitButton.classList.add('hidden');
+                stopButton.classList.add('hidden');
+                discardButton.classList.add('hidden');
+                voiceWaves.classList.remove('paused');
+                isRecording = true;
+            }
+            feather.replace();
+        }
+
+        // Handle beforeunload event
+        window.addEventListener('beforeunload', function(e) {
+            if (hasChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
+        // Initialize timer when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add click handler for recording button
+            const recordingButton = document.getElementById('recordingButton');
+            recordingButton.addEventListener('click', toggleRecordingState);
+            
+            // Add click handler for discard button
+            const discardButton = document.getElementById('discardButton');
+            discardButton.onclick = resetAll;
+            
+            // Start in recording state
+            resetAll(); // Start with a clean slate
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		F1C8DB422E29A15B00CCFD23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C8DB242E29A15900CCFD23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1C8DB2B2E29A15900CCFD23;
+			remoteInfo = Transribe;
+		};
+		F1C8DB4C2E29A15B00CCFD23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1C8DB242E29A15900CCFD23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1C8DB2B2E29A15900CCFD23;
+			remoteInfo = Transribe;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F1C8DB2C2E29A15900CCFD23 /* Transribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C8DB412E29A15B00CCFD23 /* TransribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C8DB4B2E29A15B00CCFD23 /* TransribeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransribeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F1C8DB2E2E29A15900CCFD23 /* Transribe */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Transribe;
+			sourceTree = "<group>";
+		};
+		F1C8DB442E29A15B00CCFD23 /* TransribeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TransribeTests;
+			sourceTree = "<group>";
+		};
+		F1C8DB4E2E29A15B00CCFD23 /* TransribeUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TransribeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F1C8DB292E29A15900CCFD23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C8DB3E2E29A15B00CCFD23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C8DB482E29A15B00CCFD23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F1C8DB232E29A15900CCFD23 = {
+			isa = PBXGroup;
+			children = (
+				F1C8DB2E2E29A15900CCFD23 /* Transribe */,
+				F1C8DB442E29A15B00CCFD23 /* TransribeTests */,
+				F1C8DB4E2E29A15B00CCFD23 /* TransribeUITests */,
+				F1C8DB2D2E29A15900CCFD23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F1C8DB2D2E29A15900CCFD23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1C8DB2C2E29A15900CCFD23 /* Transribe.app */,
+				F1C8DB412E29A15B00CCFD23 /* TransribeTests.xctest */,
+				F1C8DB4B2E29A15B00CCFD23 /* TransribeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1C8DB2B2E29A15900CCFD23 /* Transribe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1C8DB552E29A15B00CCFD23 /* Build configuration list for PBXNativeTarget "Transribe" */;
+			buildPhases = (
+				F1C8DB282E29A15900CCFD23 /* Sources */,
+				F1C8DB292E29A15900CCFD23 /* Frameworks */,
+				F1C8DB2A2E29A15900CCFD23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F1C8DB2E2E29A15900CCFD23 /* Transribe */,
+			);
+			name = Transribe;
+			packageProductDependencies = (
+			);
+			productName = Transribe;
+			productReference = F1C8DB2C2E29A15900CCFD23 /* Transribe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F1C8DB402E29A15B00CCFD23 /* TransribeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1C8DB582E29A15B00CCFD23 /* Build configuration list for PBXNativeTarget "TransribeTests" */;
+			buildPhases = (
+				F1C8DB3D2E29A15B00CCFD23 /* Sources */,
+				F1C8DB3E2E29A15B00CCFD23 /* Frameworks */,
+				F1C8DB3F2E29A15B00CCFD23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1C8DB432E29A15B00CCFD23 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F1C8DB442E29A15B00CCFD23 /* TransribeTests */,
+			);
+			name = TransribeTests;
+			packageProductDependencies = (
+			);
+			productName = TransribeTests;
+			productReference = F1C8DB412E29A15B00CCFD23 /* TransribeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F1C8DB4A2E29A15B00CCFD23 /* TransribeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1C8DB5B2E29A15B00CCFD23 /* Build configuration list for PBXNativeTarget "TransribeUITests" */;
+			buildPhases = (
+				F1C8DB472E29A15B00CCFD23 /* Sources */,
+				F1C8DB482E29A15B00CCFD23 /* Frameworks */,
+				F1C8DB492E29A15B00CCFD23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1C8DB4D2E29A15B00CCFD23 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F1C8DB4E2E29A15B00CCFD23 /* TransribeUITests */,
+			);
+			name = TransribeUITests;
+			packageProductDependencies = (
+			);
+			productName = TransribeUITests;
+			productReference = F1C8DB4B2E29A15B00CCFD23 /* TransribeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1C8DB242E29A15900CCFD23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					F1C8DB2B2E29A15900CCFD23 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					F1C8DB402E29A15B00CCFD23 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = F1C8DB2B2E29A15900CCFD23;
+					};
+					F1C8DB4A2E29A15B00CCFD23 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = F1C8DB2B2E29A15900CCFD23;
+					};
+				};
+			};
+			buildConfigurationList = F1C8DB272E29A15900CCFD23 /* Build configuration list for PBXProject "Transribe" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F1C8DB232E29A15900CCFD23;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F1C8DB2D2E29A15900CCFD23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1C8DB2B2E29A15900CCFD23 /* Transribe */,
+				F1C8DB402E29A15B00CCFD23 /* TransribeTests */,
+				F1C8DB4A2E29A15B00CCFD23 /* TransribeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1C8DB2A2E29A15900CCFD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C8DB3F2E29A15B00CCFD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C8DB492E29A15B00CCFD23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1C8DB282E29A15900CCFD23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C8DB3D2E29A15B00CCFD23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1C8DB472E29A15B00CCFD23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1C8DB432E29A15B00CCFD23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1C8DB2B2E29A15900CCFD23 /* Transribe */;
+			targetProxy = F1C8DB422E29A15B00CCFD23 /* PBXContainerItemProxy */;
+		};
+		F1C8DB4D2E29A15B00CCFD23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1C8DB2B2E29A15900CCFD23 /* Transribe */;
+			targetProxy = F1C8DB4C2E29A15B00CCFD23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F1C8DB532E29A15B00CCFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F1C8DB542E29A15B00CCFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F1C8DB562E29A15B00CCFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Transribe/Preview Content\"";
+				DEVELOPMENT_TEAM = D45RMSWB3F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App wants to access Microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paragdulam.Transribe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F1C8DB572E29A15B00CCFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Transribe/Preview Content\"";
+				DEVELOPMENT_TEAM = D45RMSWB3F;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "App wants to access Microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paragdulam.Transribe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F1C8DB592E29A15B00CCFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D45RMSWB3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paragdulam.TransribeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transribe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Transribe";
+			};
+			name = Debug;
+		};
+		F1C8DB5A2E29A15B00CCFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D45RMSWB3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paragdulam.TransribeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transribe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Transribe";
+			};
+			name = Release;
+		};
+		F1C8DB5C2E29A15B00CCFD23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D45RMSWB3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paragdulam.TransribeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Transribe;
+			};
+			name = Debug;
+		};
+		F1C8DB5D2E29A15B00CCFD23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D45RMSWB3F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.paragdulam.TransribeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Transribe;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F1C8DB272E29A15900CCFD23 /* Build configuration list for PBXProject "Transribe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1C8DB532E29A15B00CCFD23 /* Debug */,
+				F1C8DB542E29A15B00CCFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1C8DB552E29A15B00CCFD23 /* Build configuration list for PBXNativeTarget "Transribe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1C8DB562E29A15B00CCFD23 /* Debug */,
+				F1C8DB572E29A15B00CCFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1C8DB582E29A15B00CCFD23 /* Build configuration list for PBXNativeTarget "TransribeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1C8DB592E29A15B00CCFD23 /* Debug */,
+				F1C8DB5A2E29A15B00CCFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1C8DB5B2E29A15B00CCFD23 /* Build configuration list for PBXNativeTarget "TransribeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1C8DB5C2E29A15B00CCFD23 /* Debug */,
+				F1C8DB5D2E29A15B00CCFD23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1C8DB242E29A15900CCFD23 /* Project object */;
+}

@@ -585,6 +585,9 @@ struct TranscribeView: View {
         timer = nil
         transcriptTimer?.invalidate()
         transcriptTimer = nil
+        if let currentURL = audioManager.currentRecordingURL {
+            speechAnalyzer.transcribeAudioFile(audioURL: currentURL)
+        }
     }
     
     private func handleBack() {

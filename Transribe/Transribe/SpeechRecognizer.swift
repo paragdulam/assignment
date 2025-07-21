@@ -88,6 +88,35 @@ final class SpeechAnalyzer: NSObject, ObservableObject, SFSpeechRecognizerDelega
         speechRecognizer = nil
         inputNode = nil
     }
+
+    func transcribeAudioFile(audioURL: URL) {
+        // 1. Request permission
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            guard authStatus == .authorized else {
+                print("Speech recognition not authorized")
+                return
+            }
+
+            // 2. Create recognizer and request
+            let recognizer = SFSpeechRecognizer()
+            let request = SFSpeechURLRecognitionRequest(url: audioURL)
+
+            // Optional: Enable partial results
+            request.shouldReportPartialResults = false
+
+            // 3. Start recognition
+            recognizer?.recognitionTask(with: request) { result, error in
+                if let result = result {
+                    print("Transcription: \(result.bestTranscription.formattedString)")
+                    if result.isFinal {
+                        print("Final transcription received.")
+                    }
+                } else if let error = error {
+                    print("Transcription error: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
     
     public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
